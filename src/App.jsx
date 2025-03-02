@@ -1,6 +1,10 @@
 import { useState } from "react";
 import "./App.css";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import {
+  createBrowserRouter,
+  createHashRouter,
+  RouterProvider,
+} from "react-router-dom";
 import Home from "./components/Home/Home";
 import Brands from "./components/Brands/Brands";
 import Categories from "./components/Categories/Categories";
@@ -25,18 +29,18 @@ import CashOrder from "./components/CashOrder/CashOrder";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
 function App() {
-  const routes = createBrowserRouter([
+  const routes = createHashRouter([
     {
       path: "",
       element: <Layout />,
       children: [
         { index: true, element: <Register /> },
-        { path: "login", element: <Login /> },
-        { path: "forget-password", element: <ForgetPassword /> },
-        { path: "verify-code", element: <VerifyCode /> },
-        { path: "reset-password", element: <ResetPassword /> },
+        { path: "/login", element: <Login /> },
+        { path: "/forget-password", element: <ForgetPassword /> },
+        { path: "/verify-code", element: <VerifyCode /> },
+        { path: "/reset-password", element: <ResetPassword /> },
         {
-          path: "home",
+          path: "/home",
           element: (
             <ProtectedRoute>
               <Home />
@@ -44,7 +48,7 @@ function App() {
           ),
         },
         {
-          path: "cart",
+          path: "/cart",
           element: (
             <ProtectedRoute>
               <Cart />
@@ -52,7 +56,7 @@ function App() {
           ),
         },
         {
-          path: "wishlist",
+          path: "/wishlist",
           element: (
             <ProtectedRoute>
               <WishList />
@@ -60,7 +64,7 @@ function App() {
           ),
         },
         {
-          path: "brands",
+          path: "/brands",
           element: (
             <ProtectedRoute>
               <Brands />
@@ -68,7 +72,7 @@ function App() {
           ),
         },
         {
-          path: "categories",
+          path: "/categories",
           element: (
             <ProtectedRoute>
               <Categories />
@@ -76,7 +80,7 @@ function App() {
           ),
         },
         {
-          path: "checkout",
+          path: "/checkout",
           element: (
             <ProtectedRoute>
               <Checkout />
@@ -84,7 +88,7 @@ function App() {
           ),
         },
         {
-          path: "cash",
+          path: "/cash",
           element: (
             <ProtectedRoute>
               <CashOrder />
@@ -92,7 +96,7 @@ function App() {
           ),
         },
         {
-          path: "allorders",
+          path: "/allorders",
           element: (
             <ProtectedRoute>
               <Allorders />
@@ -100,7 +104,7 @@ function App() {
           ),
         },
         {
-          path: "productdetails/:id/:category",
+          path: "/productdetails/:id/:category",
           element: (
             <ProtectedRoute>
               <ProductDetails />

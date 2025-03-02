@@ -3,6 +3,7 @@ import style from "./Checkout.module.css";
 import { useFormik } from "formik";
 import axios from "axios";
 import { cartContext } from "../../context/CartContext";
+
 export default function Checkout() {
   let { cart } = useContext(cartContext);
   const [isLoading, setIsLoading] = useState(false);
@@ -11,7 +12,7 @@ export default function Checkout() {
     try {
       setIsLoading(true);
       let { data } = await axios.post(
-        `https://ecommerce.routemisr.com/api/v1/orders/checkout-session/${cart.cartId}?url=https://test-cart-smoky.vercel.app`,
+        `https://ecommerce.routemisr.com/api/v1/orders/checkout-session/${cart.cartId}?url=https://test-cart-2.vercel.app/#/`,
         {
           shippingAddress,
         },
