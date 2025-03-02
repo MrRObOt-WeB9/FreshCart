@@ -11,7 +11,7 @@ export default function Checkout() {
     try {
       setIsLoading(true);
       let { data } = await axios.post(
-        `https://ecommerce.routemisr.com/api/v1/orders/checkout-session/${cart.cartId}?url=http://localhost:5173`,
+        `https://ecommerce.routemisr.com/api/v1/orders/checkout-session/${cart.cartId}?url=https://test-cart-smoky.vercel.app`,
         {
           shippingAddress,
         },
