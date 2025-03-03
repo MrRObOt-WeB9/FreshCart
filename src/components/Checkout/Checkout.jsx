@@ -22,7 +22,7 @@ export default function Checkout() {
           },
         }
       );
-      location.href = data.session.url;
+      location.origin = data.session.url;
     } catch (error) {
       setIsLoading(false);
       setApiError(error.response.data.message);
